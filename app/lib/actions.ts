@@ -26,14 +26,17 @@ export type MessageState = {
 }
 
 async function validateCaptcha(captchaToken: string): Promise<boolean> {
-    const secretKey = process.env.RECAPTCHA_SECRET_KEY;
-    const captchaResponse = await fetch(
-        `https://www.google.com/recaptcha/api/siteverify?secret=${secretKey}&response=${captchaToken}`, {
+    const minimumCaptchaScore = 0.7;
+    const secretKey = process.env.RECAPTCHA_SECRET_KEY || '';
+    const data = new FormData();
+    data.append('secret', secretKey);
+    data.append('response', captchaToken);
+    const captchaResponse = await fetch('https://www.google.com/recaptcha/api/siteverify', {
         method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" }
+        body: data,
     });
     const res = await captchaResponse.json();
-    return res.success;
+    return res.score && res.score >= minimumCaptchaScore;
 }
 
 export async function createMessage(prevState: MessageState, formData: FormData) {
@@ -52,7 +55,7 @@ export async function createMessage(prevState: MessageState, formData: FormData)
     }
 
     sendToDiscord(validateFields.data);
-    return { sent: true};
+    return { sent: true };
 };
 
 

@@ -1,4 +1,4 @@
-'use client';
+'use client'
 import { useFormStatus, useFormState } from 'react-dom'
 import { createMessage, MessageState } from "@/app/lib/actions";
 import { GoogleReCaptchaProvider, useGoogleReCaptcha } from 'react-google-recaptcha-v3';
@@ -6,7 +6,7 @@ import { cyber } from "@/app/fonts/fonts"
 
 export default function Contact() {
     return (
-        <GoogleReCaptchaProvider reCaptchaKey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY as string}>
+        <GoogleReCaptchaProvider reCaptchaKey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY ?? ''}>
             <ContactForm />
         </GoogleReCaptchaProvider>
     )
