@@ -57,7 +57,7 @@ export async function createMessage(prevState: MessageState, formData: FormData)
 
 
 function sendToDiscord({name, email, message}: {name: string, email: string, message: string}) {
-    const webhookUrl = "https://discord.com/api/webhooks/1273146156913790996/plyyZfbrVoDhhT7OU7K0qIJi50EU_vd459S6gpTv8opMfEIXph2-IZniQs7Y4n3O3X-U"
+    const webhookUrl = process.env.DISCORD_MESSAGE_URL ?? '';
     const payload = {
         content: message,
         embeds: [
