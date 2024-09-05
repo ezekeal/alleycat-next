@@ -96,7 +96,6 @@ function sendToDiscord({name, email, message}: {name: string, email: string, mes
         if (!response.ok) {
             throw new Error(`Error: ${response.statusText}`);
         }
-        console.log(`reponse from discord webhook ${response.status}`);
         return response.text();
     })
     .then(() => null)
