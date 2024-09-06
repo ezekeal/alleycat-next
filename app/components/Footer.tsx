@@ -7,7 +7,7 @@ export default function Footer() {
             <a href="https://www.facebook.com/profile.php?id=61552863437428">
                 <Image className="w-8" alt="facebook" src="/images/facebook.svg" width={16} height={18}/>
             </a>
-            <a href="https://l.instagram.com/?u=https%3A%2F%2Fdiscord.com%2Finvite%2F6XGTCbKkUy&e=AT2QQc5LXE70_Jv_UnKBv8MQFlRhd0k-sY1zSng4FE2Y8G2hG5hwQhGusJMp1KVk1RBkw-Wg5vd_yEXESixl32gvrHuf_ZXOby0wW8pYUYQMJwbyqOjj">
+            <a href="https://discord.com/invite/6XGTCbKkUy">
                 <Image className="w-8" alt="discord" src="/images/discord.svg" width={16} height={16}/>
             </a>
             <a href="https://www.instagram.com/alleycatassetacquisitions">
